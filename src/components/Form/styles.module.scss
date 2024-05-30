@@ -1,0 +1,21 @@
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 500px;
+  flex-direction: column;
+
+  @media (max-width: 499px) {
+    width: 90%;
+  }
+  @media (min-width: 500px) {
+    width: 100%;
+  }
+}
+
+.item_wrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
