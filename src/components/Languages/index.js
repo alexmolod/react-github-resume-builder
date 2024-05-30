@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
 
-import { getPercentage, sumObjectsByKey } from '../../utils';
+import { getPercentage, sumObjectsByKey } from "../../utils";
 
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 const Languages = () => {
   const languagesData = useSelector((state) => state.data.languages).map((item) => item.data);

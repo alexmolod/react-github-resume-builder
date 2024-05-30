@@ -22,8 +22,7 @@ const Home = () => {
     if (errorCode) {
       let errMEssage = TOAST_ERROR_TEXT_404;
 
-      if (errorCode === ERROR_STATUS_CODE_403)
-        errMEssage = TOAST_ERROR_TEXT_403;
+      if (errorCode === ERROR_STATUS_CODE_403) errMEssage = TOAST_ERROR_TEXT_403;
 
       toast.error(errMEssage);
       setSearchParams();
