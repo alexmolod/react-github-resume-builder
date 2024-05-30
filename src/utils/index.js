@@ -14,7 +14,6 @@ export const sumObjectsByKey = (dataArray) =>
   dataArray.reduce((a, b) => {
     for (let k in b) {
       if (Object.prototype.hasOwnProperty.call(b, k)) a[k] = (a[k] || 0) + b[k];
-      // if (b.hasOwnProperty(k)) a[k] = (a[k] || 0) + b[k];
     }
     return a;
   }, {});
