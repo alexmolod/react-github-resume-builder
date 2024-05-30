@@ -1,9 +1,10 @@
 
-Clone project:
-Https:
+##Clone project:
+
+#Https:
 git clone https://github.com/alexmolod/react-github-resume-builder.git
 
-SSH:
+#SSH:
 git clone git@github.com:alexmolod/react-github-resume-builder.git
 
 Install packeges:
