@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 import Input from '@mui/material/TextField';
@@ -19,30 +19,28 @@ const Form = () => {
   const navigateToResume = useCallback(() => navigate(inputValue), [navigate, inputValue]);
 
   useEffect(() => {
-    const listener = event => {
-      if (event.code === "Enter" || event.code === "NumpadEnter") {
+    const listener = (event) => {
+      if (event.code === 'Enter' || event.code === 'NumpadEnter') {
         event.preventDefault();
         navigateToResume();
       }
     };
 
-    document.addEventListener("keydown", listener);
+    document.addEventListener('keydown', listener);
 
     return () => {
-      document.removeEventListener("keydown", listener);
+      document.removeEventListener('keydown', listener);
     };
   }, [navigateToResume]);
 
   return (
     <div className={styles.form}>
       <div className={styles.item_wrapper}>
-        <InputLabel>
-          {INPUT_LABEL_TEXT}
-        </InputLabel>
+        <InputLabel>{INPUT_LABEL_TEXT}</InputLabel>
       </div>
       <div className={styles.item_wrapper}>
         <Input
-          size='small'
+          size="small"
           value={inputValue}
           label={INPUT_PLACEHOLDER}
           onChange={handleInputChange}
