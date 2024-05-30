@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useSearchParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 
-import Input from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import Form from '../../components/Form';
+import { APP_TITLE, REQUEST_WITH_ERROR, TOAST_ERROR_TEXT_404, TOAST_ERROR_TEXT_403, ERROR_STATUS_CODE_403 } from '../../constants';
+
+import styles from './styles.module.scss';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  const errorCode = searchParams.get(REQUEST_WITH_ERROR);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  useEffect(() => {
+    if (errorCode) {
+      let errMEssage = TOAST_ERROR_TEXT_404;
 
-  const handleButtonClick = () => {
-      console.log('inputValue', inputValue, !!inputValue)
-      if (inputValue) {
-        navigate(inputValue);
-      }
-  };
+      if (errorCode === ERROR_STATUS_CODE_403) errMEssage = TOAST_ERROR_TEXT_403;
+
+      toast.error(errMEssage);
+      setSearchParams();
+    }
+  }, [setSearchParams, errorCode]);
 
   return (
-    <div>
-      <h1>React Redux Github Resume Builder</h1>
+    <div className={styles.home}>
+      <h1>{APP_TITLE}</h1>
 
-      <Input
-        label="Enter GitHub name and click Generate or press Enter"
-        variant="outlined"
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      <Button variant="contained" onClick={handleButtonClick}>Generate</Button>
+      <Form />
     </div>
   );
 };

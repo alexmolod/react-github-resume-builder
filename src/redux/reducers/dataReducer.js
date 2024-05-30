@@ -1,31 +1,35 @@
 const initialState = {
-  data: {},
-  loading: false,
+  mainUserData: [],
+  userRepos: [],
+  languages: [],
   error: null
 };
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_DATA':
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
-    case 'FETCH_DATA_SUCCESS':
+    case 'FETCH_MAIN_DATA_SUCCESS':
       return {
         ...initialState,
-        data: action.payload,
-        loading: false,
-        error: null
+        mainUserData: action.payload,
       };
-    case 'FETCH_DATA_ERROR':
+    case 'FETCH_REPOS_DATA_SUCCESS':
       return {
         ...state,
-        loading: false,
-        error: action.payload
+        userRepos: action.payload,
       };
- 
+
+    case 'FETCH_LANGUAGES_DATA_SUCCESS':
+      return {
+        ...state,
+        languages: action.payload,
+      };
+      case 'FETCH_MAIN_DATA_ERROR':
+      case 'FETCH_REPOS_DATA_ERROR':
+      case 'FETCH_LANGUAGES_DATA_ERROR':
+        return {
+          ...state,
+          error: action.payload
+        };
     default:
       return state;
   }

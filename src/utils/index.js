@@ -9,3 +9,14 @@ export const getFormattedDate = (date) => {
 
   return memberFrom;
 }
+
+export const sumObjectsByKey = (dataArray) =>
+  dataArray.reduce((a, b) => {
+    for (let k in b) {
+      if (b.hasOwnProperty(k))
+        a[k] = (a[k] || 0) + b[k];
+    }
+    return a;
+}, {});
+
+export const getPercentage = (partialValue, totalValue) => ((100 * partialValue) / totalValue).toFixed(2);
