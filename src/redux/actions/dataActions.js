@@ -2,9 +2,7 @@ import axios from "axios";
 
 export const fetchUserMainData = (gitUserName) => async (dispatch) => {
   try {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/users/${gitUserName}`,
-    );
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/users/${gitUserName}`);
 
     dispatch({ type: "FETCH_MAIN_DATA_SUCCESS", payload: data });
   } catch (error) {
@@ -14,9 +12,7 @@ export const fetchUserMainData = (gitUserName) => async (dispatch) => {
 
 export const fetchUserReposData = (gitUserName) => async (dispatch) => {
   try {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/users/${gitUserName}/repos`,
-    );
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/users/${gitUserName}/repos`);
 
     dispatch({ type: "FETCH_REPOS_DATA_SUCCESS", payload: data });
   } catch (error) {

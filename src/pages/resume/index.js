@@ -53,10 +53,7 @@ const Resume = () => {
         <ResumeRow title="Name:" content={name || FULL_NAME_ERROR_TEXT} />
         <ResumeRow title="Number of public repos:" content={public_repos} />
         <ResumeRow title="Member from:" content={memberFrom} />
-        <ResumeRow
-          content={<Languages />}
-          title="Used programming languages:"
-        />
+        <ResumeRow content={<Languages />} title="Used programming languages:" />
         <ResumeRow
           content={<Repos reposData={reposUserData} />}
           title="Most recently edited public repositories:"

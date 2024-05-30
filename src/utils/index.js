@@ -1,11 +1,11 @@
 export const getFormattedDate = (date) => {
   const options = {
-    year: 'numeric',
-    month: '2-digit',
-    day: 'numeric'
+    year: "numeric",
+    month: "2-digit",
+    day: "numeric",
   };
 
-  const memberFrom = new Date(date).toLocaleString('uk-UA', options);
+  const memberFrom = new Date(date).toLocaleString("uk-UA", options);
 
   return memberFrom;
 };
@@ -13,7 +13,7 @@ export const getFormattedDate = (date) => {
 export const sumObjectsByKey = (dataArray) =>
   dataArray.reduce((a, b) => {
     for (let k in b) {
-      if (b.hasOwnProperty(k)) a[k] = (a[k] || 0) + b[k];
+      if (Object.prototype.hasOwnProperty.call(b, k)) a[k] = (a[k] || 0) + b[k];
     }
     return a;
   }, {});

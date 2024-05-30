@@ -1,10 +1,10 @@
-import { ToastContainer } from 'react-toastify';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Home from './pages/home';
-import Resume from './pages/resume';
+import Home from "./pages/home";
+import Resume from "./pages/resume";
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
